@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotocopy Septa - Cetak & Printing Berkualitas Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffea;
+            --primary-dark: #00ccbb;
+            --secondary: #ff00ff;
+            --accent: #ff6b00;
+            --neon-blue: #0066ff;
+            --neon-pink: #ff00aa;
+            --neon-green: #00ff88;
+            --light: #ffffff;
+            --dark: #0a0a1a;
+            --dark-blue: #05051a;
+            --gradient-main: linear-gradient(135deg, #00ffea 0%, #0066ff 50%, #ff00ff 100%);
+            --gradient-bg: linear-gradient(135deg, #0a0a1a 0%, #05051a 30%, #12012b 70%, #1a0033 100%);
+            --shadow-neon: 0 0 20px rgba(0, 255, 234, 0.5);
+            --shadow-neon-pink: 0 0 20px rgba(255, 0, 255, 0.5);
+            --radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-bg);
+            color: #e0e0ff;
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* RGB Background Animation */
+        .rgb-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .rgb-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 234, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 40% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 30%);
+            animation: rgbPulse 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes rgbPulse {
+            0% {
+                filter: hue-rotate(0deg) brightness(0.8);
+                transform: scale(1);
+            }
+            100% {
+                filter: hue-rotate(90deg) brightness(1.2);
+                transform: scale(1.1);
+            }
+        }
+        
+        .rgb-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 234, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        
+        .rgb-light {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: rgbLights 15s ease-in-out infinite alternate;
+        }
+        
+        .rgb-light-1 {
+            background: rgba(0, 255, 234, 0.3);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .rgb-light-2 {
+            background: rgba(255, 0, 255, 0.3);
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .rgb-light-3 {
+            background: rgba(0, 102, 255, 0.3);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes rgbLights {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(100px, -50px) scale(1.2);
+            }
+            50% {
+                transform: translate(-50px, 100px) scale(0.8);
+            }
+            75% {
+                transform: translate(-100px, -100px) scale(1.1);
+            }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header Section */
+        .header {
+            background: rgba(10, 10, 26, 0.7);
+            border-radius: var(--radius);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+            border: 1px solid rgba(0, 255, 234, 0.2);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 234, 0.2),
+                inset 0 0 30px rgba(0, 255, 234, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 234, 0.05), transparent);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .brand-section {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .brand-title {
+            margin-bottom: 40px;
+        }
+        
+        .brand-title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #00ffea, #0066ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 234, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .brand-title .fotocopy {
+            font-size: 48px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            display: block;
+            background: linear-gradient(to right, #ffffff, #e0e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .brand-title .septa {
+            font-size: 110px;
+            letter-spacing: 5px;
+            background: linear-gradient(to right, #00ffea, #00ff88, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 0.9;
+            margin-top: 5px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 40px rgba(0, 255, 234, 0.7);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 30px rgba(0, 255, 234, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 50px rgba(255, 0, 255, 0.7), 0 0 30px rgba(0, 255, 234, 0.7);
+            }
+        }
+        
+        .brand-title .septa::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(to right, #00ffea, #ff00ff);
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+        }
+        
+        .tagline {
+            font-size: 22px;
+            color: #a0a0ff;
+            font-weight: 500;
+            margin-top: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #00ffea;
+            padding-left: 20px;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.3);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: rgba(20, 20, 40, 0.6);
+            padding: 25px;
+            border-radius: 18px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 255, 234, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.1);
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 234, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            background: rgba(30, 30, 60, 0.7);
+            box-shadow: 0 0 40px rgba(0, 255, 234, 0.3);
+            border-color: rgba(0, 255, 234, 0.4);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #00ffea;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.5);
+        }
+        
+        .service-card h3 i {
+            font-size: 26px;
+            background: rgba(0, 255, 234, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.3);
+        }
+        
+        .service-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card li {
+            font-size: 16px;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            transition: transform 0.3s ease;
+            color: #d0d0ff;
+        }
+        
+        .service-card li:hover {
+            transform: translateX(5px);
+            color: #ffffff;
+        }
+        
+        .service-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 14px;
+            background: rgba(0, 255, 136, 0.1);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+        
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            animation: slideInRight 0.8s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        .printer-card {
+            background: rgba(10, 10, 26, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(0, 255, 234, 0.2);
+            text-align: center;
+            width: 300px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .printer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 234, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.8s ease;
+        }
+        
+        .printer-card:hover::before {
+            transform: rotate(45deg) translate(20%, 20%);
+        }
+        
+        .printer-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 0 60px rgba(0, 255, 234, 0.4);
+            border-color: rgba(0, 255, 234, 0.6);
+        }
+        
+        .printer-icon {
+            font-size: 80px;
+            margin: 15px 0;
+            color: #00ffea;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 234, 0.5));
+            position: relative;
+            z-index: 2;
+            animation: floatPrinter 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatPrinter {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        .printer-card p {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1.4;
+            margin-top: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.3);
+        }
+        
+        .quality-badge {
+            background: linear-gradient(135deg, #00ffea 0%, #0066ff 50%, #ff00ff 100%);
+            color: #0a0a1a;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.5);
+            position: relative;
+            z-index: 2;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .order-badge {
+            background: linear-gradient(135deg, #ff00ff 0%, #0066ff 100%);
+            color: #ffffff;
+            padding: 35px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+            animation: pulseGlow 2.5s ease-in-out infinite;
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 40px rgba(255, 0, 255, 0.5);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 70px rgba(255, 0, 255, 0.8);
+            }
+        }
+        
+        .order-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+        
+        .order-badge:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .order-badge:hover {
+            transform: scale(1.08) rotate(-1deg);
+            animation: none;
+            box-shadow: 0 0 80px rgba(255, 0, 255, 0.9);
+        }
+        
+        .whatsapp-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #00ff88;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.5));
+            position: relative;
+            z-index: 2;
+        }
+        
+        .order-badge h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 38px;
+            font-weight: 900;
+            margin: 5px 0;
+            line-height: 1;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(0, 255, 234, 0.7);
+            background: linear-gradient(to right, #ffffff, #00ffea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .phone-number {
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.5);
+        }
+        
+        .badge-tagline {
+            font-size: 16px;
+            margin-top: 15px;
+            opacity: 0.9;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            color: #a0a0ff;
+        }
+        
+        /* Info Cards */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+        
+        .info-card {
+            background: rgba(20, 20, 40, 0.6);
+            padding: 40px 35px;
+            border-radius: var(--radius);
+            box-shadow: 0 0 30px rgba(0, 255, 234, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 234, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-card.animated {
+            animation: cardAppear 0.6s ease-out forwards;
+        }
+        
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, #00ffea, #ff00ff);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 255, 234, 0.3);
+            border-color: rgba(0, 255, 234, 0.4);
+        }
+        
+        .info-card h3 {
+            color: #00ffea;
+            font-size: 26px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            text-shadow: 0 0 15px rgba(0, 255, 234, 0.5);
+        }
+        
+        .info-card p {
+            color: #c0c0ff;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+        
+        .icon {
+            font-size: 36px;
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 255, 234, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ffea;
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.3);
+            border: 1px solid rgba(0, 255, 234, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 26, 0.8);
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 255, 234, 0.2);
+            border: 1px solid rgba(0, 255, 234, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 234, 0.05), transparent);
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #00ffea;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 20px rgba(0, 255, 234, 0.7);
+        }
+        
+        .footer-address {
+            background: rgba(0, 255, 234, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.7;
+            border-left: 5px solid #ff00ff;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 255, 234, 0.2);
+            transition: var(--transition);
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.3);
+        }
+        
+        .footer-address:hover {
+            background: rgba(0, 255, 234, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(0, 255, 234, 0.3);
+        }
+        
+        .footer-hours {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 255, 234, 0.2);
+            font-size: 18px;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: #a0a0ff;
+        }
+        
+        .footer-hours i {
+            color: #00ffea;
+        }
+        
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #0a0a1a;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+            cursor: pointer;
+            z-index: 1000;
+            transition: var(--transition);
+            animation: floatButton 3s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes floatButton {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        .floating-contact:hover {
+            transform: scale(1.15) rotate(15deg);
+            animation: none;
+            box-shadow: 0 0 60px rgba(0, 255, 136, 0.9);
+        }
+        
+        .floating-contact::before {
+            content: 'Pesan Sekarang';
+            position: absolute;
+            top: 50%;
+            right: 90px;
+            transform: translateY(-50%);
+            background: rgba(10, 10, 26, 0.9);
+            color: #00ffea;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 0 30px rgba(0, 255, 234, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 234, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .floating-contact:hover::before {
+            opacity: 1;
+            visibility: visible;
+            right: 100px;
+        }
+        
+        /* RGB Scanline Effect */
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, #00ffea, #ff00ff, #0066ff, transparent);
+            z-index: 999;
+            animation: scan 3s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.7);
+            display: none;
+        }
+        
+        @keyframes scan {
+            0% {
+                top: 0;
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0.8;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .header-content {
+                gap: 40px;
+            }
+            
+            .brand-title .septa {
+                font-size: 90px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-section {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .scanline {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 25px;
+            }
+            
+            .brand-title h1 {
+                font-size: 52px;
+            }
+            
+            .brand-title .fotocopy {
+                font-size: 36px;
+            }
+            
+            .brand-title .septa {
+                font-size: 70px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-section {
+                flex-direction: column;
+            }
+            
+            .printer-card, .order-badge {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer {
+                padding: 40px 25px;
+            }
+            
+            .floating-contact {
+                bottom: 20px;
+                right: 20px;
+                width: 70px;
+                height: 70px;
+                font-size: 32px;
+            }
+            
+            .floating-contact:hover::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .brand-title h1 {
+                font-size: 42px;
+            }
+            
+            .brand-title .fotocopy {
+                font-size: 28px;
+            }
+            
+            .brand-title .septa {
+                font-size: 55px;
+            }
+            
+            .tagline {
+                font-size: 18px;
+            }
+            
+            .service-card, .info-card {
+                padding: 25px 20px;
+            }
+            
+            .phone-number {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- RGB Background Animation -->
+    <div class="rgb-background">
+        <div class="rgb-overlay"></div>
+        <div class="rgb-grid"></div>
+        <div class="rgb-light rgb-light-1"></div>
+        <div class="rgb-light rgb-light-2"></div>
+        <div class="rgb-light rgb-light-3"></div>
+    </div>
+    
+    <!-- RGB Scanline Effect -->
+    <div class="scanline"></div>
+    
+    <div class="container">
+        <!-- Header Banner -->
+        <div class="header">
+            <div class="header-content">
+                <div class="brand-section">
+                    <div class="brand-title">
+                        <h1>
+                            <span class="fotocopy">FOTOCOPY</span>
+                            <span class="septa">SEPTA</span>
+                        </h1>
+                        <div class="tagline">Solusi Digital Printing dengan Teknologi Futuristik</div>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h3><i class="fas fa-print"></i> LAYANAN CETAK</h3>
+                            <ul>
+                                <li>Fotokopi Hitam & Warna</li>
+                                <li>Cetak Foto High Resolution</li>
+                                <li>Cetak Undangan Eksklusif</li>
+                                <li>Print Dokumen Profesional</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-card">
+                            <h3><i class="fas fa-file-alt"></i> LAYANAN DOKUMEN</h3>
+                            <ul>
+                                <li>Jasa Ketik Cepat & Akurat</li>
+                                <li>Scan Dokumen High Quality</li>
+                                <li>Jilid Berbagai Model</li>
+                                <li>Laminating Glossy & Matte</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-card">
+                            <h3><i class="fas fa-box-open"></i> PRODUK LAINNYA</h3>
+                            <ul>
+                                <li>Alat Tulis Kantor Lengkap</li>
+                                <li>Kertas & Amplop Variatif</li>
+                                <li>Tinta & Toner Printer</li>
+                                <li>Dan Lain-lain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <div class="printer-card">
+                        <div class="printer-icon"><i class="fas fa-print"></i></div>
+                        <p>Kualitas Cetakan Premium<br>Dengan Teknologi Modern</p>
+                        <div class="quality-badge">Garansi Kepuasan 100%</div>
+                    </div>
+                    
+                    <div class="order-badge" onclick="orderWhatsApp()">
+                        <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+                        <h2>TERIMA</h2>
+                        <h2>ORDER</h2>
+                        <div class="phone-number"><i class="fas fa-phone-alt"></i> 0838-6197-5700</div>
+                        <div class="badge-tagline">Klik untuk pesan via WhatsApp</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Cards -->
+        <div class="info-section" id="infoCards">
+            <div class="info-card">
+                <h3><span class="icon"><i class="fas fa-bolt"></i></span> Cepat & Efisien</h3>
+                <p>Dengan teknologi terkini, kami memberikan layanan cetak super cepat tanpa mengorbankan kualitas. Proses digital yang efisien untuk hasil maksimal.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="icon"><i class="fas fa-tags"></i></span> Harga Kompetitif</h3>
+                <p>Nikmati kualitas premium dengan harga terjangkau. Teknologi modern kami memungkinkan efisiensi biaya yang kami salurkan untuk Anda.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="icon"><i class="fas fa-award"></i></span> Hasil Premium</h3>
+                <p>Mesin cetak berteknologi tinggi menghasilkan karya yang tajam, warna akurat, dan kertas premium untuk hasil yang memukau.</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <h3><i class="fas fa-map-marker-alt"></i> LOKASI KAMI</h3>
+                <div class="footer-address">
+                    RT.08, RW.01, DUSUN KRAJAN<br>
+                    DESA WARU KARANGANYAR, KECAMATAN PURWODADI<br>
+                    KABUPATEN GROBOGAN, JAWA TENGAH
+                </div>
+                <div class="footer-hours">
+                    <p><i class="far fa-clock"></i> Buka Setiap Hari | 08.00 - 20.00 WIB</p>
+                    <p><i class="fas fa-heart" style="color: #ff00ff;"></i> Melayani dengan Teknologi & Hati</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Contact Button -->
+    <div class="floating-contact" onclick="orderWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script>
+        // Fungsi untuk memesan via WhatsApp
+        function orderWhatsApp() {
+            const phoneNumber = "6283861975700";
+            const message = "Halo Fotocopy Septa, saya ingin bertanya tentang layanan fotocopy/printing yang tersedia.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            
+            // Efek klik pada tombol
+            const button = event.currentTarget;
+            button.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 300);
+            
+            // Efek visual RGB saat klik
+            createRGBParticles(event.clientX, event.clientY);
+        }
+        
+        // Animasi untuk info cards saat scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasikan info cards saat muncul di viewport
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            const infoCards = document.querySelectorAll('.info-card');
+            infoCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Efek hover pada service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.03)';
+                    this.style.boxShadow = '0 0 50px rgba(0, 255, 234, 0.4)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 0 20px rgba(0, 255, 234, 0.1)';
+                });
+            });
+            
+            // Membuat efek partikel RGB interaktif
+            const rgbBackground = document.querySelector('.rgb-background');
+            const colors = [
+                'rgba(0, 255, 234, 0.8)',   // Cyan
+                'rgba(255, 0, 255, 0.8)',   // Magenta
+                'rgba(0, 102, 255, 0.8)',   // Blue
+                'rgba(0, 255, 136, 0.8)'    // Green
+            ];
+            
+            // Partikel latar belakang
+            for (let i = 0; i < 50; i++) {
+                createFloatingParticle();
+            }
+            
+            function createFloatingParticle() {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                const size = Math.random() * 8 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.boxShadow = '0 0 15px currentColor';
+                particle.style.opacity = '0.7';
+                
+                // Animasi partikel
+                const keyframes = [
+                    { transform: 'translate(0, 0) rotate(0deg)' },
+                    { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg)` }
+                ];
+                
+                const options = {
+                    duration: Math.random() * 15000 + 10000,
+                    iterations: Infinity,
+                    direction: 'alternate',
+                    easing: 'ease-in-out'
+                };
+                
+                particle.animate(keyframes, options);
+                rgbBackground.appendChild(particle);
+                
+                // Tambah efek kedipan
+                setInterval(() => {
+                    particle.style.opacity = Math.random() * 0.5 + 0.3;
+                }, Math.random() * 2000 + 1000);
+            }
+            
+            // Efek ketikan pada tagline dengan RGB
+            const tagline = document.querySelector('.tagline');
+            const originalText = tagline.textContent;
+            tagline.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    tagline.textContent += originalText.charAt(i);
+                    i++;
+                    
+                    // Ubah warna setiap karakter
+                    const colors = ['#00ffea', '#ff00ff', '#0066ff', '#00ff88'];
+                    tagline.style.color = colors[i % colors.length];
+                    
+                    setTimeout(typeWriter, 50);
+                } else {
+                    // Kembalikan ke warna default setelah selesai
+                    tagline.style.color = '#a0a0ff';
+                }
+            }
+            
+            // Mulai efek ketikan setelah delay
+            setTimeout(typeWriter, 1000);
+            
+            // Efek hover pada seluruh halaman untuk partikel interaktif
+            document.addEventListener('mousemove', (e) => {
+                if (Math.random() > 0.7) {
+                    createMouseParticle(e.clientX, e.clientY);
+                }
+            });
+        });
+        
+        // Membuat partikel saat mouse bergerak
+        function createMouseParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.8)`;
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '9998';
+            particle.style.boxShadow = '0 0 10px currentColor';
+            
+            document.body.appendChild(particle);
+            
+            // Animasi partikel
+            particle.animate([
+                { transform: 'scale(1)', opacity: 1 },
+                { transform: `scale(0) translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px)`, opacity: 0 }
+            ], {
+                duration: 1000,
+                easing: 'ease-out'
+            });
+            
+            // Hapus elemen setelah animasi selesai
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }
+        
+        // Membuat partikel RGB saat tombol diklik
+        function createRGBParticles(x, y) {
+            const colors = ['#00ffea', '#ff00ff', '#0066ff', '#00ff88'];
+            
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '9999';
+                particle.style.boxShadow = '0 0 15px currentColor';
+                
+                document.body.appendChild(particle);
+                
+                // Animasi partikel meledak
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 2;
+                
+                particle.animate([
+                    { transform: 'scale(1) translate(0, 0)', opacity: 1 },
+                    { transform: `scale(0) translate(${Math.cos(angle) * speed * 30}px, ${Math.sin(angle) * speed * 30}px)`, opacity: 0 }
+                ], {
+                    duration: 800,
+                    easing: 'ease-out'
+                });
+                
+                // Hapus elemen setelah animasi selesai
+                setTimeout(() => {
+                    particle.remove();
+                }, 800);
+            }
+        }
+        
+        // Efek scroll dengan parallax
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // Efek parallax pada background RGB
+            const rgbOverlay = document.querySelector('.rgb-overlay');
+            if (rgbOverlay) {
+                rgbOverlay.style.transform = `translateY(${rate * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
